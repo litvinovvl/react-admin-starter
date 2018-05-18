@@ -1,0 +1,55 @@
+.App {
+  text-align: center;
+  padding-top: 64px;
+}
+
+.App-header-title {
+  flex: 1;
+  text-align: left;
+}
+
+.App-intro {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+@keyframes App-logo-spin {
+  from {
+    -ms-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -webkit-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -ms-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.main-table {
+  width: 70%;
+  margin: 30px auto;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  border: 1px solid black;
+  margin: 0;
+}
+
+.table-item:hover {
+  background-color: #BFD5E2;
+  cursor: pointer;
+}

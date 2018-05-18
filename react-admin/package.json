@@ -1,0 +1,43 @@
+{
+  "name": "react-admin-starter",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": {
+    "/api": {
+      "target": "http://localhost:3001",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  },
+  "dependencies": {
+    "babel-eslint": "^8.2.3",
+    "json-server": "^0.12.2",
+    "material-ui": "^1.0.0-beta.44",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-redux": "^5.0.7",
+    "react-scripts": "1.1.4",
+    "react-spinners": "^0.3.2",
+    "redux": "^4.0.0",
+    "redux-saga": "^0.16.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "lint": "eslint src/**/*.js*",
+    "server": "json-server --watch db.json --port 3001",
+    "generate-users": "node generateUsers"
+  },
+  "devDependencies": {
+    "commander": "^2.15.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-plugin-import": "^2.11.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "namor": "^1.0.1"
+  }
+}
