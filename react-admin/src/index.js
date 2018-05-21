@@ -4,13 +4,13 @@ import ReactDOM from 'react-dom';
 import createSagaMiddleware from 'redux-saga';
 import { MuiThemeProvider } from 'material-ui/styles';
 import { Provider } from 'react-redux';
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose } from 'redux';
 
 import Main from './App';
 import theme from './styles/material-ui-theme';
 import './styles/index.css';
 
-import loadUsersSaga from './sagas/sagas';
+import { loadUsersSaga, rmUserSaga, updateUsersSaga, addUserSaga, confirmEditSaga } from './sagas/sagas';
 
 const devTools = process.env.NODE_ENV !== 'production' && window.devToolsExtension
   ? window.devToolsExtension()
@@ -23,7 +23,7 @@ const enhancers = compose(
   devTools,
 );
 
-const initialState = {pending: true, users: []};
+const initialState = {pending: true, popup: false, editing: false, users: []};
 
 const reducer = function (state = initialState, action) {
   switch (action.type) {
@@ -31,13 +31,38 @@ const reducer = function (state = initialState, action) {
        return Object.assign({}, state);
     case 'LOAD_USERS_FETCH':
       return Object.assign({}, state, {pending: false, users: action.payload});
-    default: return state;
+    case 'REMOVE_USER':
+      return Object.assign({}, state);
+    case 'START_LOADING':
+      return Object.assign({}, state, {pending: true});
+    case 'SWITCH_POPUP':
+      return Object.assign({}, state, {popup: !state.popup});
+    case 'ADD_USER':
+      return state;
+    case 'EDIT_USER':
+      return Object.assign({}, state, {editing: true});
+    case 'CONFIRM_EDIT_USER_FETCH':
+      let i;
+      let tmp = state.users.find((user, index) => {
+        i = index;
+        return user.id === Number(action.payload[0])
+      });
+      Object.assign(tmp, action.payload[1]);
+      let newUsers = state.users;
+      newUsers[i] = tmp;
+      return Object.assign({}, state, {editing: false, users: newUsers});
+    default:
+      return state;
   }
 };
 
 const store = createStore(reducer, initialState, enhancers);
 
 sagaMiddleware.run(loadUsersSaga);
+sagaMiddleware.run(rmUserSaga);
+sagaMiddleware.run(updateUsersSaga);
+sagaMiddleware.run(addUserSaga);
+sagaMiddleware.run(confirmEditSaga);
 
 ReactDOM.render(
   <Provider store={store}>

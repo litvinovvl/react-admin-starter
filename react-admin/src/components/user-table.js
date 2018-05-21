@@ -10,7 +10,11 @@ class UsersTable extends Component {
 
     let items = this.props.users.map((item, index) => <TableItem key={index} id={item.id}
                                                                    name={item.firstName}
-                                                                   surname={item.lastName} />);
+                                                                   surname={item.lastName}
+                                                                   age={item.age}
+                                                                   visits={item.visits}
+                                                                   progress={item.progress}
+                                                                   status={item.status}/>);
 
     return (
       <table className='main-table'>
@@ -19,6 +23,10 @@ class UsersTable extends Component {
             <th>id</th>
             <th>Name</th>
             <th>Surname</th>
+            <th>Age</th>
+            <th>Visits</th>
+            <th>Progress</th>
+            <th>Status</th>
           </tr>
         </thead>
         <tbody>

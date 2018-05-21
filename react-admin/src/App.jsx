@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Icon from 'material-ui/Icon';
 import { connect } from 'react-redux';
@@ -14,6 +13,9 @@ import SideMenu from './components/side-menu';
 import UserTable from './components/user-table';
 import Loading from './components/loading';
 import {loadUsers} from "./actions/action-creators";
+import UserInfo from './components/user-info';
+import AddUser from './components/add-user';
+import AddUserBtn from './components/add-user-btn'
 
 class App extends Component {
 
@@ -32,13 +34,15 @@ class App extends Component {
             <Typography variant="title" color="inherit" className="App-header-title">
               React Admin
             </Typography>
-            <Button color="inherit">Add user</Button>
+            <AddUserBtn />
           </Toolbar>
         </AppBar>
         <HashRouter >
         <div className='main'>
           <SideMenu />
-          <Route exact path="/" component={this.props.pending ? Loading : UserTable} />
+          {this.props.popup ? <AddUser /> : null}
+          <Route exact path='/' component={this.props.pending ? Loading : UserTable} />
+          <Route path='/users/:id' component={UserInfo} />
         </div>
         </HashRouter>
       </div>
