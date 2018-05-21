@@ -6,7 +6,7 @@ import { MuiThemeProvider } from 'material-ui/styles';
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 
-import Test from './App';
+import Main from './App';
 import theme from './styles/material-ui-theme';
 import './styles/index.css';
 
@@ -42,7 +42,7 @@ sagaMiddleware.run(loadUsersSaga);
 ReactDOM.render(
   <Provider store={store}>
     <MuiThemeProvider theme={theme}>
-      <Test />
+      <Main />
     </MuiThemeProvider>
   </Provider>,
   document.getElementById('root'),

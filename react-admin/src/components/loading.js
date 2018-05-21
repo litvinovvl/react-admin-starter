@@ -6,10 +6,12 @@ import { RingLoader } from 'react-spinners';
 class Loading extends Component {
   render() {
     return (
-      <RingLoader
-        color={'#123abc'}
-        loading={true}
-      />
+      <div className='loading'>
+        <RingLoader
+          color={'#123abc'}
+          loading={true}
+        />
+      </div>
     )
   }
 

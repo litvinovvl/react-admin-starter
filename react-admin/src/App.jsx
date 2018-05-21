@@ -6,9 +6,11 @@ import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import Icon from 'material-ui/Icon';
 import { connect } from 'react-redux';
+import { HashRouter, Route } from 'react-router-dom';
 
 import './App.css';
 
+import SideMenu from './components/side-menu';
 import UserTable from './components/user-table';
 import Loading from './components/loading';
 import {loadUsers} from "./actions/action-creators";
@@ -25,20 +27,25 @@ class App extends Component {
         <AppBar position="fixed">
           <Toolbar>
             <IconButton className="App-menu-btn" color="inherit" aria-label="Menu">
-              <Icon> menu </Icon>
+              <Icon> </Icon>
             </IconButton>
             <Typography variant="title" color="inherit" className="App-header-title">
               React Admin
             </Typography>
-            <Button color="inherit">Login</Button>
+            <Button color="inherit">Add user</Button>
           </Toolbar>
         </AppBar>
-        {this.props.pending ? <Loading /> : <UserTable />}
+        <HashRouter >
+        <div className='main'>
+          <SideMenu />
+          <Route exact path="/" component={this.props.pending ? Loading : UserTable} />
+        </div>
+        </HashRouter>
       </div>
     );
   }
 }
 
-let Test = connect(state => state)(App);
+let Main = connect(state => state)(App);
 
-export default Test;
+export default Main;
