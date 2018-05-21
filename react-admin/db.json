@@ -1,51 +1,6 @@
 {
   "users": [
     {
-      "id": 0,
-      "firstName": "suit",
-      "lastName": "meeting",
-      "age": 25,
-      "visits": 71,
-      "progress": 28,
-      "status": "complicated"
-    },
-    {
-      "id": 1,
-      "firstName": "failure",
-      "lastName": "chin",
-      "age": 4,
-      "visits": 23,
-      "progress": 47,
-      "status": "relationship"
-    },
-    {
-      "id": 2,
-      "firstName": "sneeze",
-      "lastName": "beast",
-      "age": 25,
-      "visits": 98,
-      "progress": 65,
-      "status": "complicated"
-    },
-    {
-      "id": 3,
-      "firstName": "hope",
-      "lastName": "youth",
-      "age": 16,
-      "visits": 17,
-      "progress": 34,
-      "status": "complicated"
-    },
-    {
-      "id": 4,
-      "firstName": "fight",
-      "lastName": "quince",
-      "age": 15,
-      "visits": 31,
-      "progress": 50,
-      "status": "single"
-    },
-    {
       "id": 5,
       "firstName": "creator",
       "lastName": "surprise",

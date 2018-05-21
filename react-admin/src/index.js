@@ -10,7 +10,7 @@ import Main from './App';
 import theme from './styles/material-ui-theme';
 import './styles/index.css';
 
-import { loadUsersSaga, rmUserSaga, updateUsersSaga, addUserSaga, confirmEditSaga } from './sagas/sagas';
+import rootSaga from './sagas/sagas';
 
 const devTools = process.env.NODE_ENV !== 'production' && window.devToolsExtension
   ? window.devToolsExtension()
@@ -58,11 +58,7 @@ const reducer = function (state = initialState, action) {
 
 const store = createStore(reducer, initialState, enhancers);
 
-sagaMiddleware.run(loadUsersSaga);
-sagaMiddleware.run(rmUserSaga);
-sagaMiddleware.run(updateUsersSaga);
-sagaMiddleware.run(addUserSaga);
-sagaMiddleware.run(confirmEditSaga);
+sagaMiddleware.run(rootSaga);
 
 ReactDOM.render(
   <Provider store={store}>
