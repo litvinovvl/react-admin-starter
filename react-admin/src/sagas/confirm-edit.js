@@ -34,9 +34,8 @@ function* confirmEditAsync(data) {
       }
     );
     if(status === 200) {
-      yield put(confirmEditUserFetch([id, tmpUser]));
+      yield put(confirmEditUserFetch({id, tmpUser}));
     }
-
   } catch (error) {
     console.error(error);
   }

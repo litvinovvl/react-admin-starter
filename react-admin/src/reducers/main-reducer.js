@@ -30,9 +30,9 @@ export default function (state = initialState, action) {
       let i;
       let tmp = state.users.find((user, index) => {
         i = index;
-        return user.id === Number(action.payload[0])
+        return user.id === Number(action.payload.id)
       });
-      Object.assign(tmp, action.payload[1]);
+      Object.assign(tmp, action.payload.tmpUser);
       let newUsers = state.users;
       newUsers[i] = tmp;
       return Object.assign({}, state, {editing: false, users: newUsers});
