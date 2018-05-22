@@ -12,19 +12,19 @@ export default function (state = initialState, action) {
   switch (action.type) {
 
     case LOAD_USERS_FETCH:
-      return Object.assign({}, state, {pending: false, users: action.payload});
+      return {...state, pending: false, users: action.payload};
 
     case START_LOADING:
-      return Object.assign({}, state, {pending: true});
+      return {...state, pending: true};
 
     case SWITCH_POPUP:
-      return Object.assign({}, state, {popup: !state.popup});
+      return {...state, popup: !state.popup};
 
     case EDIT_USER:
-      return Object.assign({}, state, {editing: true});
+      return {...state, editing: true};
 
     case RESET_EDITING:
-      return Object.assign({}, state, {editing: false});
+      return {...state, editing: false};
 
     case CONFIRM_EDIT_USER_FETCH:
       let i;
@@ -35,13 +35,13 @@ export default function (state = initialState, action) {
       Object.assign(tmp, action.payload.tmpUser);
       let newUsers = state.users;
       newUsers[i] = tmp;
-      return Object.assign({}, state, {editing: false, users: newUsers});
+      return {...state, editing: false, users: newUsers};
 
     case LOGIN_SWITCH:
-      return Object.assign({}, state, {isLogged: !state.isLogged, loginFailed: false});
+      return {...state, isLogged: !state.isLogged, loginFailed: false};
 
     case LOGIN_FAILED:
-      return Object.assign({}, state, {loginFailed: true});
+      return {...state, loginFailed: true};
 
     default:
       return state;

@@ -8,7 +8,6 @@ export default function* () {
 
 function* loadUsersAsync(data) {
   let query = data.payload;
-  console.log(query);
   try {
     const data = yield call(() => {
         return fetch(`http://localhost:3000/users?${query}`)

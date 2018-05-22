@@ -34,15 +34,6 @@
       "status": "single"
     },
     {
-      "firstName": "user",
-      "lastName": "health",
-      "age": "28",
-      "visits": "44",
-      "progress": "28",
-      "status": "relationship",
-      "id": 15
-    },
-    {
       "id": 16,
       "firstName": "rub",
       "lastName": "order",
