@@ -10,7 +10,7 @@ class Login extends Component {
 
   render() {
     return (
-      <div>
+      <div className='login'>
         <form onSubmit={this.login} ref={node => this.loginForm = node} >
           <input type='text' placeholder='login...'/>
           <input type='password' placeholder='password...'/>
