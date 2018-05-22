@@ -20,7 +20,7 @@ import Exit from "./components/exit";
 
 class App extends Component {
 
-  componentWillReceiveProps() {
+  componentDidMount() {
     this.props.dispatch(loadUsers());
   }
 
