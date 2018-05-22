@@ -23,7 +23,7 @@ function* confirmEditAsync(data) {
   };
 
   try {
-    const data = yield call(() => {
+    yield call(() => {
         return fetch(`http://localhost:3000/users/${id}`, {
           method: 'PUT', body: JSON.stringify(tmpUser), headers: {
             'Content-Type': 'application/json; charset=utf-8'

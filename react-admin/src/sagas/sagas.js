@@ -4,6 +4,7 @@ import rmUserSaga from './remove-user';
 import updateUsersSaga from './update-users';
 import addUserSaga from './add-user';
 import confirmEditSaga from './confirm-edit';
+import login from './login';
 
 export default function* () {
   yield [
@@ -11,6 +12,7 @@ export default function* () {
     fork(rmUserSaga),
     fork(updateUsersSaga),
     fork(addUserSaga),
-    fork(confirmEditSaga)
+    fork(confirmEditSaga),
+    fork(login)
   ];
 }

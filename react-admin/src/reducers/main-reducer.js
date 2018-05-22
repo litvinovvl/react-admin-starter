@@ -1,16 +1,10 @@
-export const initialState = {pending: true, popup: false, editing: false, users: []};
+export const initialState = {loginFailed: false, isLogged: false, pending: true, popup: false, editing: false, users: []};
 
 export default function (state = initialState, action) {
   switch (action.type) {
 
-    case 'LOAD_USERS':
-      return Object.assign({}, state);
-
     case 'LOAD_USERS_FETCH':
       return Object.assign({}, state, {pending: false, users: action.payload});
-
-    case 'REMOVE_USER':
-      return Object.assign({}, state);
 
     case 'START_LOADING':
       return Object.assign({}, state, {pending: true});
@@ -24,6 +18,9 @@ export default function (state = initialState, action) {
     case 'EDIT_USER':
       return Object.assign({}, state, {editing: true});
 
+    case 'RESET_EDITING':
+      return Object.assign({}, state, {editing: false});
+
     case 'CONFIRM_EDIT_USER_FETCH':
       let i;
       let tmp = state.users.find((user, index) => {
@@ -34,6 +31,12 @@ export default function (state = initialState, action) {
       let newUsers = state.users;
       newUsers[i] = tmp;
       return Object.assign({}, state, {editing: false, users: newUsers});
+
+    case 'LOGIN_SWITCH':
+      return Object.assign({}, state, {isLogged: !state.isLogged, loginFailed: false});
+
+    case 'LOGIN_FAILED':
+      return Object.assign({}, state, {loginFailed: true});
 
     default:
       return state;

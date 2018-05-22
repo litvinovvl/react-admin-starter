@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
-import IconButton from 'material-ui/IconButton';
-import Icon from 'material-ui/Icon';
 import { connect } from 'react-redux';
 import { HashRouter, Route } from 'react-router-dom';
 
@@ -16,6 +14,9 @@ import {loadUsers} from "./actions/action-creators";
 import UserInfo from './components/user-info';
 import AddUser from './components/add-user';
 import AddUserBtn from './components/add-user-btn'
+import Filter from "./components/filter";
+import Login from "./components/login";
+import Exit from "./components/exit";
 
 class App extends Component {
 
@@ -28,21 +29,29 @@ class App extends Component {
       <div className="App">
         <AppBar position="fixed">
           <Toolbar>
-            <IconButton className="App-menu-btn" color="inherit" aria-label="Menu">
-              <Icon> </Icon>
-            </IconButton>
             <Typography variant="title" color="inherit" className="App-header-title">
               React Admin
             </Typography>
-            <AddUserBtn />
+            {this.props.isLogged ? <AddUserBtn /> : null}
+            {this.props.isLogged ? <Exit /> : null}
           </Toolbar>
         </AppBar>
         <HashRouter >
         <div className='main'>
-          <SideMenu />
+          {this.props.isLogged ? <SideMenu /> : null}
           {this.props.popup ? <AddUser /> : null}
-          <Route exact path='/' component={this.props.pending ? Loading : UserTable} />
-          <Route path='/users/:id' component={UserInfo} />
+          <div className='table-place'>
+            {(() => {if(this.props.isLogged) {
+                return (<div>
+                  <Filter />
+                  <Route exact path='/' component={this.props.pending ? Loading : UserTable} />
+                  <Route path='/users/:id' component={UserInfo} />
+                </div>)
+                } else {
+                  return <Login />
+                }
+              })()}
+          </div>
         </div>
         </HashRouter>
       </div>

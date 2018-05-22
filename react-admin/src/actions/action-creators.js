@@ -1,5 +1,5 @@
-export const loadUsers = () => {
-  return { type: 'LOAD_USERS' }
+export const loadUsers = (params) => {
+  return { type: 'LOAD_USERS', payload: params }
 };
 
 export const loadUsersFetch = (data) => {
@@ -36,4 +36,20 @@ export const confirmEditUser = (data) => {
 
 export const confirmEditUserFetch = (id, data) => {
   return { type: 'CONFIRM_EDIT_USER_FETCH', payload: [id, data] }
+};
+
+export const resetEditing = () => {
+  return { type: 'RESET_EDITING' }
+};
+
+export const login = (data) => {
+  return { type: 'LOGIN', payload:data }
+};
+
+export const loginFetch = () => {
+  return { type: 'LOGIN_SWITCH' }
+};
+
+export const loginFailed = () => {
+  return { type: 'LOGIN_FAILED' }
 };

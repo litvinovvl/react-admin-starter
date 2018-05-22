@@ -39,7 +39,7 @@
 
 .main-table {
   width: 70%;
-  margin: 30px auto;
+  margin: 10px auto;
   border: 1px solid black;
   border-collapse: collapse;
 }
@@ -174,4 +174,20 @@ input {
   padding: 1px 2px;
   margin: 0;
   width: 120px;
+}
+
+.table-place {
+  width: 100%;
+}
+
+.filter {
+  margin: 10px auto;
+}
+
+.filter input {
+  padding: 0;
+}
+
+.red {
+  color: red;
 }

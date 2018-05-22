@@ -3,7 +3,7 @@ import { Component } from 'react';
 import '../App.css';
 import { connect } from "react-redux";
 import { Link, withRouter } from 'react-router-dom';
-import { rmUser, editUser, confirmEditUser } from "../actions/action-creators";
+import { rmUser, editUser, confirmEditUser, resetEditing } from "../actions/action-creators";
 
 class UsersInfo extends Component {
   dispatchRmUser = () => {
@@ -16,6 +16,10 @@ class UsersInfo extends Component {
 
   dispatchConfirmEdit = () => {
     this.props.dispatch(confirmEditUser(this.newData));
+  };
+
+  reset = () => {
+    this.props.dispatch(resetEditing());
   };
 
   render () {
@@ -34,15 +38,15 @@ class UsersInfo extends Component {
           </li>
           <li>Age:
             <span className={this.props.editing ? 'hidden' : ''}> {user.age}</span>
-            <input type='text' className={this.props.editing ? '' : 'hidden'} defaultValue={user.age}/>
+            <input type='number' className={this.props.editing ? '' : 'hidden'} defaultValue={user.age}/>
           </li>
           <li>Visits:
             <span className={this.props.editing ? 'hidden' : ''}> {user.visits}</span>
-            <input type='text' className={this.props.editing ? '' : 'hidden'} defaultValue={user.visits}/>
+            <input type='number' className={this.props.editing ? '' : 'hidden'} defaultValue={user.visits}/>
           </li>
           <li>Progress:
             <span className={this.props.editing ? 'hidden' : ''}> {user.progress}</span>
-            <input type='text' className={this.props.editing ? '' : 'hidden'} defaultValue={user.progress}/>
+            <input type='number' className={this.props.editing ? '' : 'hidden'} defaultValue={user.progress}/>
           </li>
           <li>Status:
             <span className={this.props.editing ? 'hidden' : ''}> {user.status}</span>
@@ -52,7 +56,7 @@ class UsersInfo extends Component {
         <div className='user-btns'>
           <button className='btn' onClick={this.props.editing ? this.dispatchConfirmEdit: this.dispatchEdit}>{this.props.editing ? 'Confirm' : 'Edit'}</button>
           <button className='btn' onClick={this.dispatchRmUser}>Remove</button>
-          <Link to='/'><button className='btn'>Back</button></Link>
+          <Link to='/'><button className='btn' onClick={this.reset}>Back</button></Link>
         </div>
       </div>
     )

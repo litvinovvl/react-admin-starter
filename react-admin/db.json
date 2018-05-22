@@ -1,14 +1,9 @@
 {
+  "login": [
+    {"login": "admin",
+     "password": "admin"}
+  ],
   "users": [
-    {
-      "id": 5,
-      "firstName": "creator",
-      "lastName": "surprise",
-      "age": 1,
-      "visits": 81,
-      "progress": 83,
-      "status": "single"
-    },
     {
       "id": 7,
       "firstName": "teeth",
@@ -53,15 +48,6 @@
       "visits": 32,
       "progress": 57,
       "status": "single"
-    },
-    {
-      "id": 12,
-      "firstName": "sand",
-      "lastName": "beetle",
-      "age": 9,
-      "visits": 51,
-      "progress": 96,
-      "status": "relationship"
     },
     {
       "id": 13,

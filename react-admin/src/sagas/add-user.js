@@ -1,6 +1,6 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { switchUserPopup } from '../actions/action-creators';
-import updateUsersAsync from './update-users';
+import { updateUsersAsync } from './update-users';
 
 export default function* () {
   yield takeEvery('ADD_USER', addUserAsync);
@@ -23,7 +23,7 @@ function* addUserAsync(data) {
             'Content-Type': 'application/json; charset=utf-8'
           },
         })
-          .then(res => console.log(res.status));
+          .then(res => res.json());
       }
     );
     yield put(switchUserPopup());

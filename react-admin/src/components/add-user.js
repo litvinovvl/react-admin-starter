@@ -25,7 +25,7 @@ class AddUser extends Component {
             <form className='form' onSubmit={this.submitForm} ref={node => this.form = node}>
               <input type='text' placeholder='First name' />
               <input type='text' placeholder='Last name'/>
-              <input type='text' placeholder='Age'/>
+              <input type='number' placeholder='Age'/>
               <input type='text' placeholder='Status'/>
               <input type="submit" value='Submit'/>
             </form>
