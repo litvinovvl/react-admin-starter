@@ -1,9 +1,10 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { switchUserPopup } from '../actions/action-creators';
 import { updateUsersAsync } from './update-users';
+import { ADD_USER } from "../actionTypes/action-types";
 
 export default function* () {
-  yield takeEvery('ADD_USER', addUserAsync);
+  yield takeEvery(ADD_USER, addUserAsync);
 }
 
 function* addUserAsync(data) {

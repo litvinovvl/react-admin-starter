@@ -1,8 +1,9 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { loginFetch, loginFailed } from "../actions/action-creators";
+import { LOGIN } from "../actionTypes/action-types";
 
 export default function* () {
-  yield takeEvery('LOGIN',loginAsync);
+  yield takeEvery(LOGIN,loginAsync);
 }
 
 function* loginAsync(data) {

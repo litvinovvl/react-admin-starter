@@ -1,8 +1,9 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { loadUsersFetch, startLoading } from '../actions/action-creators';
+import { UPDATE_USERS } from "../actionTypes/action-types";
 
 export default function* () {
-  yield takeEvery('UPDATE_USERS', updateUsersAsync);
+  yield takeEvery(UPDATE_USERS, updateUsersAsync);
 }
 
 export function* updateUsersAsync() {

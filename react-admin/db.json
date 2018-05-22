@@ -1,53 +1,19 @@
 {
   "login": [
-    {"login": "admin",
-     "password": "admin"}
+    {
+      "login": "admin",
+      "password": "admin"
+    }
   ],
   "users": [
     {
-      "id": 7,
-      "firstName": "teeth",
-      "lastName": "sign",
-      "age": 16,
-      "visits": 88,
-      "progress": 66,
-      "status": "complicated"
-    },
-    {
-      "id": 8,
-      "firstName": "carpenter",
-      "lastName": "reason",
-      "age": 21,
-      "visits": 20,
-      "progress": 81,
-      "status": "relationship"
-    },
-    {
-      "id": 9,
-      "firstName": "root",
-      "lastName": "kittens",
-      "age": 1,
-      "visits": 1,
-      "progress": 89,
-      "status": "complicated"
-    },
-    {
-      "id": 10,
-      "firstName": "owl",
-      "lastName": "glass",
-      "age": 10,
-      "visits": 4,
-      "progress": 81,
-      "status": "complicated"
-    },
-    {
-      "id": 11,
       "firstName": "rain",
       "lastName": "picture",
-      "age": 6,
-      "visits": 32,
-      "progress": 57,
-      "status": "single"
+      "age": "6",
+      "visits": "32",
+      "progress": "57",
+      "status": "single",
+      "id": 11
     },
     {
       "id": 13,
@@ -68,13 +34,13 @@
       "status": "single"
     },
     {
-      "id": 15,
-      "firstName": "use",
-      "lastName": "death",
-      "age": 26,
-      "visits": 44,
-      "progress": 28,
-      "status": "relationship"
+      "firstName": "user",
+      "lastName": "health",
+      "age": "28",
+      "visits": "44",
+      "progress": "28",
+      "status": "relationship",
+      "id": 15
     },
     {
       "id": 16,

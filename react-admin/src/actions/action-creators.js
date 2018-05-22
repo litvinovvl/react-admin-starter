@@ -1,55 +1,26 @@
-export const loadUsers = (params) => {
-  return { type: 'LOAD_USERS', payload: params }
-};
+import {
+  ADD_USER, CONFIRM_EDIT_USER, CONFIRM_EDIT_USER_FETCH, EDIT_USER,
+  LOAD_USERS,
+  LOAD_USERS_FETCH, LOGIN, LOGIN_FAILED, LOGIN_SWITCH,
+  REMOVE_USER, RESET_EDITING,
+  START_LOADING,
+  SWITCH_POPUP,
+  UPDATE_USERS
+} from "../actionTypes/action-types";
 
-export const loadUsersFetch = (data) => {
-  return { type: 'LOAD_USERS_FETCH', payload: data }
-};
+import { createAction } from 'redux-actions';
 
-export const rmUser = (id, push) => {
-  return { type: 'REMOVE_USER', id, push }
-};
-
-export const updateUsers = () => {
-  return { type: 'UPDATE_USERS' }
-};
-
-export const startLoading = () => {
-  return { type: 'START_LOADING' }
-};
-
-export const switchUserPopup = () => {
-  return { type: 'SWITCH_POPUP' }
-};
-
-export const submitNewUser = (data) => {
-  return { type: 'ADD_USER', payload: data }
-};
-
-export const editUser = () => {
-  return { type: 'EDIT_USER' }
-};
-
-export const confirmEditUser = (data) => {
-  return { type: 'CONFIRM_EDIT_USER', payload: data }
-};
-
-export const confirmEditUserFetch = (id, data) => {
-  return { type: 'CONFIRM_EDIT_USER_FETCH', payload: [id, data] }
-};
-
-export const resetEditing = () => {
-  return { type: 'RESET_EDITING' }
-};
-
-export const login = (data) => {
-  return { type: 'LOGIN', payload:data }
-};
-
-export const loginFetch = () => {
-  return { type: 'LOGIN_SWITCH' }
-};
-
-export const loginFailed = () => {
-  return { type: 'LOGIN_FAILED' }
-};
+export const loadUsers = createAction(LOAD_USERS);
+export const loadUsersFetch = createAction(LOAD_USERS_FETCH);
+export const updateUsers = createAction(UPDATE_USERS);
+export const startLoading = createAction(START_LOADING);
+export const switchUserPopup = createAction(SWITCH_POPUP);
+export const submitNewUser = createAction(ADD_USER);
+export const editUser = createAction(EDIT_USER);
+export const confirmEditUser = createAction(CONFIRM_EDIT_USER);
+export const resetEditing = createAction(RESET_EDITING);
+export const login = createAction(LOGIN);
+export const loginFetch = createAction(LOGIN_SWITCH);
+export const loginFailed = createAction(LOGIN_FAILED);
+export const rmUser = createAction(REMOVE_USER);
+export const confirmEditUserFetch = createAction(CONFIRM_EDIT_USER_FETCH);

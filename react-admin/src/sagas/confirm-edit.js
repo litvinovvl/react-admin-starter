@@ -1,8 +1,9 @@
 import { put, call, takeEvery } from 'redux-saga/effects';
 import { confirmEditUserFetch } from '../actions/action-creators';
+import { CONFIRM_EDIT_USER } from "../actionTypes/action-types";
 
 export default function* () {
-  yield takeEvery('CONFIRM_EDIT_USER', confirmEditAsync);
+  yield takeEvery(CONFIRM_EDIT_USER, confirmEditAsync);
 }
 
 function* confirmEditAsync(data) {
@@ -33,7 +34,7 @@ function* confirmEditAsync(data) {
       }
     );
     if(status === 200) {
-      yield put(confirmEditUserFetch(id, tmpUser));
+      yield put(confirmEditUserFetch([id, tmpUser]));
     }
 
   } catch (error) {

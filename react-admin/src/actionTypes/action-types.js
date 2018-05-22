@@ -1,0 +1,14 @@
+export const LOAD_USERS = 'LOAD_USERS';
+export const LOAD_USERS_FETCH = 'LOAD_USERS_FETCH';
+export const REMOVE_USER = 'REMOVE_USER';
+export const UPDATE_USERS = 'UPDATE_USERS';
+export const START_LOADING = 'START_LOADING';
+export const SWITCH_POPUP = 'SWITCH_POPUP';
+export const ADD_USER = 'ADD_USER';
+export const EDIT_USER = 'EDIT_USER';
+export const CONFIRM_EDIT_USER = 'CONFIRM_EDIT_USER';
+export const CONFIRM_EDIT_USER_FETCH = 'CONFIRM_EDIT_USER_FETCH';
+export const RESET_EDITING = 'RESET_EDITING';
+export const LOGIN = 'LOGIN';
+export const LOGIN_SWITCH = 'LOGIN_SWITCH';
+export const LOGIN_FAILED = 'LOGIN_FAILED';

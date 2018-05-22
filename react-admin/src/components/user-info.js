@@ -7,7 +7,7 @@ import { rmUser, editUser, confirmEditUser, resetEditing } from "../actions/acti
 
 class UsersInfo extends Component {
   dispatchRmUser = () => {
-    this.props.dispatch(rmUser(this.props.match.params.id, this.props.history.push));
+    this.props.dispatch(rmUser([this.props.match.params.id, this.props.history.push]));
   };
 
   dispatchEdit = () => {
