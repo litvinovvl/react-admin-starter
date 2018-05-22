@@ -6,7 +6,22 @@ import { loadUsers } from "../actions/action-creators";
 
 class Filter extends Component {
   submitFilter = () => {
-    this.props.dispatch(loadUsers(this.filter));
+    let field, value, query;
+    if (this.filter.querySelector('select').value && this.filter.querySelector('input[type=text]').value) {
+      switch (this.filter.querySelector('select').value.toLowerCase()) {
+        case 'surname':
+          field = 'lastName';
+          break;
+        case 'name':
+          field = 'firstName';
+          break;
+        default:
+          field = this.filter.querySelector('select').value.toLowerCase();
+      }
+      value = this.filter.querySelector('input[type=text]').value;
+      query = `${field}=${value}`;
+    }
+    this.props.dispatch(loadUsers(query));
   };
 
   render() {

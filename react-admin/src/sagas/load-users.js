@@ -6,27 +6,9 @@ export default function* () {
   yield takeEvery(LOAD_USERS, loadUsersAsync);
 }
 
-function* loadUsersAsync(params) {
-  let field, value, query;
-  if(params.payload) {
-    if(params.payload.querySelector('select').value && params.payload.querySelector('input[type=text]').value){
-      switch (params.payload.querySelector('select').value.toLowerCase()) {
-        case 'surname':
-          field = 'lastName';
-          break;
-        case 'name':
-          field = 'firstName';
-          break;
-        default:
-          field = params.payload.querySelector('select').value.toLowerCase();
-          break;
-      }
-      value = params.payload.querySelector('input[type=text]').value;
-      query = `${field}=${value}`;
-    } else {
-      query = '';
-    }
-  }
+function* loadUsersAsync(data) {
+  let query = data.payload;
+  console.log(query);
   try {
     const data = yield call(() => {
         return fetch(`http://localhost:3000/users?${query}`)
